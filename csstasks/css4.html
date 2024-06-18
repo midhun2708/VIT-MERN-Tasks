@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Container with Buttons</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 500px;
+            height: 300px;
+            border: 2px solid black;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .heading {
+            font-size: 24px;
+            margin: 0;
+        }
+        .text {
+            font-size: 14px;
+            margin-bottom: 200px;
+        }
+        .buttons-container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .button {
+            width: 50px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover{
+            background-color: rgb(0, 0, 0);
+        }
+        .button1 { background-color: red; }
+        .button2 { background-color: green; }
+        .button3 { background-color: blue; }
+        .button4 { background-color: yellow; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">Hoverable Sidenav Buttons</h2>
+        <p class="text">Hover over the buttons in the left side navigation to open them.</p>
+        <div class="buttons-container">
+            <button class="button button1"></button>
+            <button class="button button2"></button>
+            <button class="button button3"></button>
+            <button class="button button4"></button>
+        </div>
+    </div>
+</body>
+</html>

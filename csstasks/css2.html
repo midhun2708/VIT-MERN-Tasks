@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .vertical-nav {
+            width: 200px;
+            height: 100%;
+            background-color: #9fdee4;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+        .vertical-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color:blue;
+            display: block;
+        }
+        .vertical-nav a:hover {
+            background-color:orange;
+        }
+        .horizontal-nav {
+            margin-top: 0px;
+            margin-left: 200px;
+            overflow: hidden;
+            background-color: #ddd;
+        }
+        .horizontal-nav a {
+            float: left;
+            display: block;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .horizontal-nav a:hover {
+            background-color:grey;
+            color: black;
+        }
+    </style>
+    <title>Vertical Navigation Bar</title>
+</head>
+<body>
+    <div class="vertical-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Java</a>
+        <a href="#clients">CSS</a>
+        <a href="#contact">HTML</a>
+        <a href="#contact">Bootsrap</a>
+    </div>
+    <div class="horizontal-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Java</a>
+        <a href="#clients">CSS</a>
+        <a href="#contact">HTML</a>
+        <a href="#contact">Bootsrap</a>
+    </div>
+    <div style="margin-left:220px;padding:15px 15px;">
+        <h1>Welcome</h1>
+        <p>Content goes here...</p>
+    </div>
+</body>
+</html>
