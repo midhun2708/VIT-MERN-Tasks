@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffcccc, #ffffcc);
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background: white;
+            border-radius: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        textarea,
+        select {
+            width: calc(100% - 160px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .error {
+            color: red;
+            display: inline-block;
+            margin-left: 10px;
+        }
+        .button-container {
+            text-align: center;
+        }
+        .button-container button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: darkred;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        .form-section:last-of-type {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Registration Form</h1>
+
+<form id="registrationForm">
+    <div class="form-section">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName">
+        <span id="firstNameError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName">
+        <span id="lastNameError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <span id="emailError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <span id="passwordError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="confirmPassword">Re-enter Password:</label>
+        <input type="password" id="confirmPassword">
+        <span id="confirmPasswordError" class="error">POOR OR MISMATCH</span>
+    </div>
+
+    <div class="form-section">
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male"> Male
+        <input type="radio" id="female" name="gender" value="female"> Female
+        <span id="genderError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="age">Age:</label>
+        <input type="number" id="age">
+        <span id="ageError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="text" id="phoneNumber">
+        <span id="phoneNumberError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="address">Address:</label>
+        <textarea id="address"></textarea>
+        <span id="addressError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="state">State:</label>
+        <input type="text" id="state">
+        <span id="stateError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label for="country">Country:</label>
+        <select id="country">
+            <option value="">Choose your country</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select>
+        <span id="countryError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <label>Languages known:</label>
+        <input type="checkbox" id="english" name="language" value="English"> English
+        <input type="checkbox" id="kannada" name="language" value="Kannada"> Kannada
+        <input type="checkbox" id="hindi" name="language" value="Hindi"> Hindi
+        <input type="checkbox" id="telugu" name="language" value="Telugu"> Telugu
+        <span id="languageError" class="error">POOR</span>
+    </div>
+
+    <div class="form-section">
+        <input type="checkbox" id="declaration"> Hereby I declare all the given details are true
+        <span id="declarationError" class="error">POOR</span>
+    </div>
+
+    <div class="button-container">
+        <button type="button" onclick="validateForm()">REGISTER</button>
+    </div>
+</form>
+
+<script>
+    function validateForm() {
+        let valid = true;
+
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const male = document.getElementById('male').checked;
+        const female = document.getElementById('female').checked;
+        const age = document.getElementById('age').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const address = document.getElementById('address').value;
+        const state = document.getElementById('state').value;
+        const country = document.getElementById('country').value;
+        const declaration = document.getElementById('declaration').checked;
+
+        document.getElementById('firstNameError').style.display = firstName ? 'none' : 'inline';
+        document.getElementById('lastNameError').style.display = lastName ? 'none' : 'inline';
+        document.getElementById('emailError').style.display = email ? 'none' : 'inline';
+        document.getElementById('passwordError').style.display = password ? 'none' : 'inline';
+        document.getElementById('confirmPasswordError').style.display = (confirmPassword && confirmPassword === password) ? 'none' : 'inline';
+        document.getElementById('genderError').style.display = (male || female) ? 'none' : 'inline';
+        document.getElementById('ageError').style.display = age ? 'none' : 'inline';
+        document.getElementById('phoneNumberError').style.display = phoneNumber ? 'none' : 'inline';
+        document.getElementById('addressError').style.display = address ? 'none' : 'inline';
+        document.getElementById('stateError').style.display = state ? 'none' : 'inline';
+        document.getElementById('countryError').style.display = country ? 'none' : 'inline';
+        document.getElementById('languageError').style.display = (document.getElementById('english').checked || document.getElementById('kannada').checked || document.getElementById('hindi').checked || document.getElementById('telugu').checked) ? 'none' : 'inline';
+        document.getElementById('declarationError').style.display = declaration ? 'none' : 'inline';
+
+        valid = firstName && lastName && email && password && (confirmPassword === password) && (male || female) && age && phoneNumber && address && state && country && declaration &&
+            (document.getElementById('english').checked || document.getElementById('kannada').checked || document.getElementById('hindi').checked || document.getElementById('telugu').checked);
+
+        if (valid) {
+            alert('Form submitted successfully!');
+        } else {
+            alert('Please fill all the fields correctly.');
+        }
+    }
+</script>
+
+</body>
+</html>
+

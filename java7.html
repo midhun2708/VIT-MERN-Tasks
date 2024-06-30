@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Train Animation</title>
+    <style>
+        #train {
+            position: relative;
+            left: 0;
+            transition: left 1s;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<img id="train" src="train.jpeg" width="300" alt="Train">
+<h2>Click the following buttons to handle animation</h2>
+<div class="button-container">
+    <button onclick="startTrain()">Start</button>
+    <button onclick="stopTrain()">Stop</button>
+</div>
+
+<script>
+    let train = document.getElementById("train");
+    let trainInterval;
+    let position = 0;
+
+    function startTrain() {
+        if (!trainInterval) {
+            trainInterval = setInterval(moveTrain, 100);
+        }
+    }
+
+    function moveTrain() {
+        position += 5;
+        train.style.left = position + "px";
+        if (position > window.innerWidth) {
+            position = -300; // Reset position to start from left again
+        }
+    }
+
+    function stopTrain() {
+        clearInterval(trainInterval);
+        trainInterval = null;
+    }
+</script>
+
+</body>
+</html>
